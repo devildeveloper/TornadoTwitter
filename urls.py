@@ -8,5 +8,15 @@ urls = [
         '/',
         controllers.main.Main,
         name='index'
+    ),
+    url(
+        '/login',
+        controllers.main.Login,
+        name='login'
+    ),
+    url(
+        'logout',
+        controllers.main.Logout,
+        name='logout'
     )
 ]

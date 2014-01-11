@@ -1,6 +1,9 @@
 import tornado
 from tornado.options import define, options, parse_command_line
 from jinja2 import Environment, FileSystemLoader
+from sqlalchemy import create_engine
+
+
 import settings
 from urls import urls
 
@@ -19,6 +22,9 @@ class Application(tornado.web.Application):
         self._template_env = Environment(
             loader=FileSystemLoader(self.settings.get('template_path')),
             auto_reload=self.settings.get('debug')
+        )
+        self._db_engine = create_engine(
+            self.settings.get('database_dsn')
         )
 
 

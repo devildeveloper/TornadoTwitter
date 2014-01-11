@@ -1,1 +1,9 @@
-{{ debug }}
+{{ form.errors}}
+<form method='POST' action="{{ handler.reverse_url('index') }}">
+	{% for field in form %}
+		<div>{{field.label}}: {{field}}</div>
+
+	{% endfor %}
+	<input type="submit" value="twittear">
+
+</form>

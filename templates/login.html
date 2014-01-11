@@ -1,0 +1,10 @@
+{{ form.errors }}
+<form method="POST" action="{{ handler.reverse_url('login') }}">
+	{{ handler.xsrf_form_html()}} <!-- esto maneja el envio coreecto de form a tornado -->
+	{% for field in form %}
+	<div>{{field.label}}: {{field}}</div>
+	{% endfor %}
+	<input type="submit" value="enviar">
+
+
+</form>
